@@ -25,7 +25,7 @@
 | SP006 | Lenovo Ideapad 330S | 11000000 | cái | 24 |
 | SP020 | AMD Ryzen 9 3900x 3.8GHz | 13090000 | cái | 36 |
 
-### User Interface
+#### User Interface
 ![Image](https://i.imgur.com/bDLkvYD.png)
 
 ### System requirement
