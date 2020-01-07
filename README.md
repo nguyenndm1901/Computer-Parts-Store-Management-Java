@@ -2,7 +2,7 @@
 # University of Information Technology
 # Faculty of Software Engineering
 
-## Computer-Parts-Store-Management-Java
+## Computer Parts Store Management Java
 
 ### Description
 - Computer Parts Store Management Java is an application that written by Java and using Microsoft SQL Server. This application can help you in managing your store easily.
