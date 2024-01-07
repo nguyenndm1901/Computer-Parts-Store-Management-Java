@@ -37,7 +37,7 @@ public class formDoanhThu extends javax.swing.JFrame {
     public ArrayList<Invoice> invoiceList(){
         ArrayList<Invoice> invoicesList = new ArrayList<>();
         try {
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             Statement statement = connection.createStatement();           
             ResultSet resultSet = statement.executeQuery("SELECT * FROM HoaDon");
@@ -94,7 +94,7 @@ public class formDoanhThu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Doanh Thu");
 
-        table.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new DefaultTableModel(
             new Object [][] {
 
             },
@@ -235,7 +235,7 @@ public class formDoanhThu extends javax.swing.JFrame {
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
         try {
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             String query = "SELECT SUM(tongTien) AS TongCong FROM HoaDon WHERE ngayXuatHD >= ? AND ngayXuatHD <= ?";
             PreparedStatement pst = connection.prepareStatement(query);
@@ -332,7 +332,7 @@ public class formDoanhThu extends javax.swing.JFrame {
     
     private void fillTxtDoanhThu() {
         try{
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             String sql = "SELECT SUM(tongTien) AS TongCong FROM HoaDon";
             PreparedStatement pst = connection.prepareStatement(sql); 

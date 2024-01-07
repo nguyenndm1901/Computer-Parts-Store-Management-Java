@@ -54,7 +54,7 @@ public class formResetPassword extends javax.swing.JFrame {
         lblUserID.setText("Tên Đăng Nhập:");
 
         txtUserID.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+            public void keyPressed(KeyEvent evt) {
                 txtUserIDKeyPressed(evt);
             }
         });
@@ -63,7 +63,7 @@ public class formResetPassword extends javax.swing.JFrame {
         lblUserPassword.setText("Mật Khẩu mới:");
 
         txtUserPassword.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+            public void keyPressed(KeyEvent evt) {
                 txtUserPasswordKeyPressed(evt);
             }
         });
@@ -134,7 +134,7 @@ public class formResetPassword extends javax.swing.JFrame {
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         try {
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+            String url = ConnectionString.getUrl();
             Connection cnn = DriverManager.getConnection(url);
             String sql = "UPDATE DangNhap SET userpassword = ? WHERE userid = ?";
             PreparedStatement pst = cnn.prepareStatement(sql);
@@ -156,7 +156,7 @@ public class formResetPassword extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void txtUserIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserIDKeyPressed
+    private void txtUserIDKeyPressed(KeyEvent evt) {//GEN-FIRST:event_txtUserIDKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             if(txtUserID.getText().trim().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Yêu cầu nhập tên đăng nhập");
@@ -166,7 +166,7 @@ public class formResetPassword extends javax.swing.JFrame {
             }
             else {
                 try {
-                    String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+                    String url = ConnectionString.getUrl();
                     Connection cnn = DriverManager.getConnection(url);
                     String sql = "UPDATE DangNhap SET userpassword = ? WHERE userid = ?";
                     PreparedStatement pst = cnn.prepareStatement(sql);
@@ -184,7 +184,7 @@ public class formResetPassword extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtUserIDKeyPressed
 
-    private void txtUserPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserPasswordKeyPressed
+    private void txtUserPasswordKeyPressed(KeyEvent evt) {//GEN-FIRST:event_txtUserPasswordKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             if(txtUserID.getText().trim().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Yêu cầu nhập tên đăng nhập");
@@ -194,7 +194,7 @@ public class formResetPassword extends javax.swing.JFrame {
             }
             else {
                 try {
-                    String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+                    String url = ConnectionString.getUrl();
                     Connection cnn = DriverManager.getConnection(url);
                     String sql = "UPDATE DangNhap SET userpassword = ? WHERE userid = ?";
                     PreparedStatement pst = cnn.prepareStatement(sql);

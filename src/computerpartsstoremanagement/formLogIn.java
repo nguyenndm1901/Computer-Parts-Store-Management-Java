@@ -59,13 +59,13 @@ public class formLogIn extends javax.swing.JFrame {
         lblUserPassword.setText("Mật Khẩu:");
 
         txtUserID.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+            public void keyPressed(KeyEvent evt) {
                 txtUserIDKeyPressed(evt);
             }
         });
 
         txtUserPassword.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
+            public void keyPressed(KeyEvent evt) {
                 txtUserPasswordKeyPressed(evt);
             }
         });
@@ -170,7 +170,7 @@ public class formLogIn extends javax.swing.JFrame {
         }
         else {
             try{
-                String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+                String url = ConnectionString.getUrl();
                 Connection cnn = DriverManager.getConnection(url);
                 String sql = "SELECT * FROM DangNhap WHERE userid = ? and userpassword = ?";
                 PreparedStatement pst = cnn.prepareStatement(sql);
@@ -216,7 +216,7 @@ public class formLogIn extends javax.swing.JFrame {
         }
         else {
             try{
-                String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+                String url = ConnectionString.getUrl();
                 Connection cnn = DriverManager.getConnection(url);
                 String sql = "INSERT INTO [dbo].[DangNhap] ([userid],[userpassword]) VALUES(?,?)";
                 PreparedStatement pst = cnn.prepareStatement(sql);
@@ -233,7 +233,7 @@ public class formLogIn extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnNewActionPerformed
 
-    private void txtUserPasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserPasswordKeyPressed
+    private void txtUserPasswordKeyPressed(KeyEvent evt) {//GEN-FIRST:event_txtUserPasswordKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             if(txtUserID.getText().trim().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Yêu cầu nhập tên đăng nhập");
@@ -243,7 +243,7 @@ public class formLogIn extends javax.swing.JFrame {
             }
             else {
                 try{
-                    String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+                    String url = ConnectionString.getUrl();
                     Connection cnn = DriverManager.getConnection(url);
                     String sql = "SELECT * FROM DangNhap WHERE userid = ? and userpassword = ?";
                     PreparedStatement pst = cnn.prepareStatement(sql);
@@ -270,7 +270,7 @@ public class formLogIn extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtUserPasswordKeyPressed
 
-    private void txtUserIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUserIDKeyPressed
+    private void txtUserIDKeyPressed(KeyEvent evt) {//GEN-FIRST:event_txtUserIDKeyPressed
         if(evt.getKeyCode()==KeyEvent.VK_ENTER){
             if(txtUserID.getText().trim().isEmpty()){
                 JOptionPane.showMessageDialog(null, "Yêu cầu nhập tên đăng nhập");
@@ -280,7 +280,7 @@ public class formLogIn extends javax.swing.JFrame {
             }
             else {
                 try{
-                    String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+                    String url = ConnectionString.getUrl();
                     Connection cnn = DriverManager.getConnection(url);
                     String sql = "SELECT * FROM DangNhap WHERE userid = ? and userpassword = ?";
                     PreparedStatement pst = cnn.prepareStatement(sql);

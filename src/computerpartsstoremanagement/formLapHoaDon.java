@@ -16,7 +16,7 @@ import java.util.Vector;
 import javax.swing.table.*;
 import javax.swing.*;
 
-public class formLapHoaDon extends javax.swing.JFrame {
+public class formLapHoaDon extends JFrame {
     public formLapHoaDon() {
         initComponents();
         initTable();
@@ -37,7 +37,7 @@ public class formLapHoaDon extends javax.swing.JFrame {
     private boolean check(String maHD){
         boolean existed = false;
         try{
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             String sql = "SELECT COUNT(maHD) AS MaHD FROM HoaDon WHERE maHD = ?";
             PreparedStatement pst = connection.prepareStatement(sql); 
@@ -61,7 +61,7 @@ public class formLapHoaDon extends javax.swing.JFrame {
     public ArrayList<Payment> paymentList(){
         ArrayList<Payment> paymentsList = new ArrayList<>();
         try {
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM GioHang");
@@ -98,44 +98,44 @@ public class formLapHoaDon extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblMaHD = new javax.swing.JLabel();
-        lblNgayMua = new javax.swing.JLabel();
-        lblTenKH = new javax.swing.JLabel();
-        lblSDT = new javax.swing.JLabel();
-        lblTenNV = new javax.swing.JLabel();
-        lblTenSP = new javax.swing.JLabel();
-        lblSoLuong = new javax.swing.JLabel();
-        lblDonGia = new javax.swing.JLabel();
-        lblDVT = new javax.swing.JLabel();
-        lblBH = new javax.swing.JLabel();
-        txtMaHD = new javax.swing.JTextField();
-        txtNgayMua = new javax.swing.JTextField();
-        txtTenKH = new javax.swing.JTextField();
-        txtSDT = new javax.swing.JTextField();
-        cbTenNV = new javax.swing.JComboBox<>();
-        cbTenSP = new javax.swing.JComboBox<>();
-        txtSoLuong = new javax.swing.JTextField();
-        txtDonGia = new javax.swing.JTextField();
-        lblDong = new javax.swing.JTextField();
-        txtDVT = new javax.swing.JTextField();
-        txtBH = new javax.swing.JTextField();
-        btnNew = new javax.swing.JButton();
-        btnAdd = new javax.swing.JButton();
-        btnCheckOut = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        table = new javax.swing.JTable();
-        lblThang = new javax.swing.JTextField();
-        btnDelete = new javax.swing.JButton();
-        txtTotal = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        system = new javax.swing.JMenu();
-        back = new javax.swing.JMenuItem();
-        about = new javax.swing.JMenuItem();
-        exit = new javax.swing.JMenuItem();
+        lblMaHD = new JLabel();
+        lblNgayMua = new JLabel();
+        lblTenKH = new JLabel();
+        lblSDT = new JLabel();
+        lblTenNV = new JLabel();
+        lblTenSP = new JLabel();
+        lblSoLuong = new JLabel();
+        lblDonGia = new JLabel();
+        lblDVT = new JLabel();
+        lblBH = new JLabel();
+        txtMaHD = new JTextField();
+        txtNgayMua = new JTextField();
+        txtTenKH = new JTextField();
+        txtSDT = new JTextField();
+        cbTenNV = new JComboBox<>();
+        cbTenSP = new JComboBox<>();
+        txtSoLuong = new JTextField();
+        txtDonGia = new JTextField();
+        lblDong = new JTextField();
+        txtDVT = new JTextField();
+        txtBH = new JTextField();
+        btnNew = new JButton();
+        btnAdd = new JButton();
+        btnCheckOut = new JButton();
+        jScrollPane1 = new JScrollPane();
+        table = new JTable();
+        lblThang = new JTextField();
+        btnDelete = new JButton();
+        txtTotal = new JTextField();
+        jLabel1 = new JLabel();
+        jLabel2 = new JLabel();
+        jMenuBar1 = new JMenuBar();
+        system = new JMenu();
+        back = new JMenuItem();
+        about = new JMenuItem();
+        exit = new JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Lập Hóa Đơn");
 
         lblMaHD.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
@@ -182,7 +182,7 @@ public class formLapHoaDon extends javax.swing.JFrame {
         txtMaHD.setBorder(null);
         txtMaHD.setEnabled(false);
 
-        txtNgayMua.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtNgayMua.setHorizontalAlignment(JTextField.CENTER);
         txtNgayMua.setEnabled(false);
 
         txtTenKH.setEnabled(false);
@@ -198,11 +198,11 @@ public class formLapHoaDon extends javax.swing.JFrame {
             }
         });
 
-        txtSoLuong.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtSoLuong.setHorizontalAlignment(JTextField.CENTER);
         txtSoLuong.setEnabled(false);
 
         txtDonGia.setEditable(false);
-        txtDonGia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDonGia.setHorizontalAlignment(JTextField.CENTER);
         txtDonGia.setEnabled(false);
 
         lblDong.setEditable(false);
@@ -211,11 +211,11 @@ public class formLapHoaDon extends javax.swing.JFrame {
         lblDong.setEnabled(false);
 
         txtDVT.setEditable(false);
-        txtDVT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtDVT.setHorizontalAlignment(JTextField.CENTER);
         txtDVT.setEnabled(false);
 
         txtBH.setEditable(false);
-        txtBH.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtBH.setHorizontalAlignment(JTextField.CENTER);
         txtBH.setEnabled(false);
 
         btnNew.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
@@ -242,7 +242,7 @@ public class formLapHoaDon extends javax.swing.JFrame {
             }
         });
 
-        table.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new DefaultTableModel(
             new Object [][] {
 
             },
@@ -270,7 +270,7 @@ public class formLapHoaDon extends javax.swing.JFrame {
         });
 
         txtTotal.setEditable(false);
-        txtTotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        txtTotal.setHorizontalAlignment(JTextField.RIGHT);
 
         jLabel1.setText("Tổng Hóa Đơn:");
 
@@ -306,144 +306,144 @@ public class formLapHoaDon extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(lblTenSP, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(cbTenSP, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                        .addComponent(lblSDT, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblTenNV, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cbTenNV, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(lblTenSP, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cbTenSP, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(lblSDT, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtSDT, GroupLayout.PREFERRED_SIZE, 90, GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblTenNV, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbTenNV, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(lblTenKH)
                                 .addGap(18, 18, 18)
                                 .addComponent(txtTenKH))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblMaHD, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtMaHD, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(lblMaHD, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtMaHD, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblNgayMua)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNgayMua, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtNgayMua, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblDonGia, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(lblDVT, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtDVT, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblDonGia, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblDVT, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtDVT, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(txtDonGia, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(lblDong, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(txtDonGia, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(lblDong, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(226, 226, 226)
                                 .addComponent(lblBH)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtBH, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtBH, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
                                         .addGap(4, 4, 4)
-                                        .addComponent(lblThang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(lblSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(lblThang, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(lblSoLuong, GroupLayout.PREFERRED_SIZE, 79, GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
-                                        .addComponent(txtSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(txtSoLuong, GroupLayout.PREFERRED_SIZE, 60, GroupLayout.PREFERRED_SIZE)))))
                         .addGap(18, 18, 18)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnNew, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
-                            .addComponent(btnCheckOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(btnAdd, GroupLayout.PREFERRED_SIZE, 170, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnNew, GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
+                            .addComponent(btnCheckOut, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnDelete)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtTotal, GroupLayout.PREFERRED_SIZE, 118, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel2)
                         .addGap(4, 4, 4)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(btnNew, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnAdd, GroupLayout.PREFERRED_SIZE, 172, GroupLayout.PREFERRED_SIZE)
+                        .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(btnNew, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(btnCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(btnCheckOut, GroupLayout.PREFERRED_SIZE, 77, GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(lblMaHD)
-                            .addComponent(txtMaHD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtMaHD, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblNgayMua)
-                            .addComponent(txtNgayMua, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtNgayMua, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(lblTenKH)
-                            .addComponent(txtTenKH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTenKH, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(lblSDT)
-                            .addComponent(txtSDT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtSDT, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblTenNV)
-                            .addComponent(cbTenNV, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cbTenNV, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(lblTenSP)
-                            .addComponent(cbTenSP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbTenSP, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblSoLuong)
-                            .addComponent(txtSoLuong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtSoLuong, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDonGia)
-                            .addComponent(txtDonGia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblDong, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtDonGia, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblDong, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                             .addComponent(lblDVT)
-                            .addComponent(txtDVT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtDVT, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblBH)
-                            .addComponent(txtBH, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblThang, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(txtBH, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblThang, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 237, GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                         .addComponent(btnDelete)
                         .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtTotal, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -516,7 +516,7 @@ public class formLapHoaDon extends javax.swing.JFrame {
         }
         else {
         try {
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             String query = "INSERT INTO GioHang (ngay,maHD,tenSP,giaTien,soLuong,dvt,thoiGianBH,thanhTien) VALUES(?,?,?,?,?,?,?,?)";
             PreparedStatement pst = connection.prepareStatement(query);
@@ -602,7 +602,7 @@ public class formLapHoaDon extends javax.swing.JFrame {
         btnNew.setEnabled(true);
         
         try {
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             String query = "INSERT INTO HoaDon (maHD,ngayXuatHD,tongTien,tenKH,tenNV) VALUES(?,?,?,?,?)";
             PreparedStatement pst = connection.prepareStatement(query);
@@ -618,7 +618,7 @@ public class formLapHoaDon extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, sqlex);
         }
         try {
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             String query = "INSERT INTO KhachHang (ngayMua,maHD,tenKH,sdt) VALUES(?,?,?,?)";
             PreparedStatement pst = connection.prepareStatement(query);
@@ -632,7 +632,7 @@ public class formLapHoaDon extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, sqlex);
         }
         try {
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             int doanhThu = 0;
             int tongCong = Integer.parseInt(txtTotal.getText());
@@ -647,7 +647,7 @@ public class formLapHoaDon extends javax.swing.JFrame {
         }  
         
         try {
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             String query = "INSERT INTO ThongKe(ngay,maHD,tenSP,donGia,soLuong,dvt,thanhTien) SELECT ngay,maHD,tenSP,giaTien,soLuong,dvt,thanhTien FROM GioHang";
             String query2 = "UPDATE ThongKe SET tenKH = ? WHERE maHD = ?";
@@ -663,7 +663,7 @@ public class formLapHoaDon extends javax.swing.JFrame {
         }
         
         try {
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             String query = "DELETE FROM GioHang";
             PreparedStatement pst = connection.prepareStatement(query);      
@@ -683,7 +683,7 @@ public class formLapHoaDon extends javax.swing.JFrame {
 
     public void loadCBTenNV(){
         try{
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             String sql = "SELECT * FROM NhanVien";
             PreparedStatement pst;
@@ -702,7 +702,7 @@ public class formLapHoaDon extends javax.swing.JFrame {
     
     public void loadCBTenSP(){
         try{
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             String sql = "SELECT * FROM SanPham";
             PreparedStatement pst;
@@ -721,7 +721,7 @@ public class formLapHoaDon extends javax.swing.JFrame {
     
     private void cbTenSPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbTenSPActionPerformed
         try{
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             String sql = "SELECT * FROM SanPham WHERE tenSP = ?";
             PreparedStatement pst = connection.prepareStatement(sql); 
@@ -749,8 +749,8 @@ public class formLapHoaDon extends javax.swing.JFrame {
     }//GEN-LAST:event_tableMouseClicked
 
     public void SumTotal(){
-        try{       
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+        try{
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             String sql = "SELECT SUM(thanhTien) AS ThanhTien FROM GioHang";
             PreparedStatement pst = connection.prepareStatement(sql); 
@@ -766,8 +766,8 @@ public class formLapHoaDon extends javax.swing.JFrame {
     }
     
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        try {            
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+        try {
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             String query = "DELETE FROM GioHang WHERE tenSP=?";
             PreparedStatement pst = connection.prepareStatement(query);
@@ -812,9 +812,9 @@ public class formLapHoaDon extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
@@ -824,7 +824,7 @@ public class formLapHoaDon extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(formLapHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(formLapHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(formLapHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -839,41 +839,41 @@ public class formLapHoaDon extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem about;
-    private javax.swing.JMenuItem back;
-    private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnCheckOut;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnNew;
-    private javax.swing.JComboBox<String> cbTenNV;
-    private javax.swing.JComboBox<String> cbTenSP;
-    private javax.swing.JMenuItem exit;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblBH;
-    private javax.swing.JLabel lblDVT;
-    private javax.swing.JLabel lblDonGia;
-    private javax.swing.JTextField lblDong;
-    private javax.swing.JLabel lblMaHD;
-    private javax.swing.JLabel lblNgayMua;
-    private javax.swing.JLabel lblSDT;
-    private javax.swing.JLabel lblSoLuong;
-    private javax.swing.JLabel lblTenKH;
-    private javax.swing.JLabel lblTenNV;
-    private javax.swing.JLabel lblTenSP;
-    private javax.swing.JTextField lblThang;
-    private javax.swing.JMenu system;
-    private javax.swing.JTable table;
-    private javax.swing.JTextField txtBH;
-    private javax.swing.JTextField txtDVT;
-    private javax.swing.JTextField txtDonGia;
-    private javax.swing.JTextField txtMaHD;
-    private javax.swing.JTextField txtNgayMua;
-    private javax.swing.JTextField txtSDT;
-    private javax.swing.JTextField txtSoLuong;
-    private javax.swing.JTextField txtTenKH;
-    private javax.swing.JTextField txtTotal;
+    private JMenuItem about;
+    private JMenuItem back;
+    private JButton btnAdd;
+    private JButton btnCheckOut;
+    private JButton btnDelete;
+    private JButton btnNew;
+    private JComboBox<String> cbTenNV;
+    private JComboBox<String> cbTenSP;
+    private JMenuItem exit;
+    private JLabel jLabel1;
+    private JLabel jLabel2;
+    private JMenuBar jMenuBar1;
+    private JScrollPane jScrollPane1;
+    private JLabel lblBH;
+    private JLabel lblDVT;
+    private JLabel lblDonGia;
+    private JTextField lblDong;
+    private JLabel lblMaHD;
+    private JLabel lblNgayMua;
+    private JLabel lblSDT;
+    private JLabel lblSoLuong;
+    private JLabel lblTenKH;
+    private JLabel lblTenNV;
+    private JLabel lblTenSP;
+    private JTextField lblThang;
+    private JMenu system;
+    private JTable table;
+    private JTextField txtBH;
+    private JTextField txtDVT;
+    private JTextField txtDonGia;
+    private JTextField txtMaHD;
+    private JTextField txtNgayMua;
+    private JTextField txtSDT;
+    private JTextField txtSoLuong;
+    private JTextField txtTenKH;
+    private JTextField txtTotal;
     // End of variables declaration//GEN-END:variables
 }

@@ -17,7 +17,7 @@ import java.util.Date;
 import javax.swing.*;
 import javax.swing.table.*;
 
-public class formTraCuuHoaDon extends javax.swing.JFrame {
+public class formTraCuuHoaDon extends JFrame {
 
     /**
      * Creates new form formSearchHoaDon
@@ -31,7 +31,7 @@ public class formTraCuuHoaDon extends javax.swing.JFrame {
     public ArrayList<Invoice> invoiceList(){
         ArrayList<Invoice> invoicesList = new ArrayList<>();
         try {
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM HoaDon");
@@ -72,28 +72,28 @@ public class formTraCuuHoaDon extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblTimKiem = new javax.swing.JLabel();
-        txtTimKiem = new javax.swing.JTextField();
-        btnSearch = new javax.swing.JButton();
-        btnClear = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        table = new javax.swing.JTable();
-        lblDate = new javax.swing.JLabel();
-        txtSearchDate = new javax.swing.JTextField();
-        btnSearchDate = new javax.swing.JButton();
-        btnClearDate = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        system = new javax.swing.JMenu();
-        back = new javax.swing.JMenuItem();
-        about = new javax.swing.JMenuItem();
-        exit = new javax.swing.JMenuItem();
+        lblTimKiem = new JLabel();
+        txtTimKiem = new JTextField();
+        btnSearch = new JButton();
+        btnClear = new JButton();
+        jScrollPane1 = new JScrollPane();
+        table = new JTable();
+        lblDate = new JLabel();
+        txtSearchDate = new JTextField();
+        btnSearchDate = new JButton();
+        btnClearDate = new JButton();
+        jMenuBar1 = new JMenuBar();
+        system = new JMenu();
+        back = new JMenuItem();
+        about = new JMenuItem();
+        exit = new JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tra Cứu Hóa Đơn");
 
         lblTimKiem.setText("Tìm Kiếm Theo Từ Khóa:");
 
-        txtTimKiem.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtTimKiem.setHorizontalAlignment(JTextField.CENTER);
 
         btnSearch.setText("Tìm Kiếm");
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +109,7 @@ public class formTraCuuHoaDon extends javax.swing.JFrame {
             }
         });
 
-        table.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new DefaultTableModel(
             new Object [][] {
 
             },
@@ -121,7 +121,7 @@ public class formTraCuuHoaDon extends javax.swing.JFrame {
 
         lblDate.setText("Tìm Kiếm Theo Ngày:");
 
-        txtSearchDate.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtSearchDate.setHorizontalAlignment(JTextField.CENTER);
 
         btnSearchDate.setText("Tìm Kiếm");
         btnSearchDate.addActionListener(new java.awt.event.ActionListener() {
@@ -168,31 +168,31 @@ public class formTraCuuHoaDon extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTimKiem, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                            .addComponent(lblTimKiem, GroupLayout.Alignment.TRAILING)
+                            .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(lblDate)
                                 .addGap(25, 25, 25)))
                         .addGap(11, 11, 11)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtTimKiem, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtTimKiem, GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                             .addComponent(txtSearchDate))
                         .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnSearch)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnClear))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(btnSearchDate)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnClearDate)))
@@ -200,23 +200,23 @@ public class formTraCuuHoaDon extends javax.swing.JFrame {
                 .addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+            .addGroup(GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTimKiem)
-                    .addComponent(txtTimKiem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTimKiem, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearch)
                     .addComponent(btnClear))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblDate, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtSearchDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDate, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearchDate, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSearchDate)
                     .addComponent(btnClearDate))
                 .addGap(9, 9, 9)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, GroupLayout.PREFERRED_SIZE, 299, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -289,9 +289,9 @@ public class formTraCuuHoaDon extends javax.swing.JFrame {
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
@@ -301,7 +301,7 @@ public class formTraCuuHoaDon extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(formTraCuuHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(formTraCuuHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(formTraCuuHoaDon.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -316,21 +316,21 @@ public class formTraCuuHoaDon extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem about;
-    private javax.swing.JMenuItem back;
-    private javax.swing.JButton btnClear;
-    private javax.swing.JButton btnClearDate;
-    private javax.swing.JButton btnSearch;
-    private javax.swing.JButton btnSearchDate;
-    private javax.swing.JMenuItem exit;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblDate;
-    private javax.swing.JLabel lblTimKiem;
-    private javax.swing.JMenu system;
-    private javax.swing.JTable table;
-    private javax.swing.JTextField txtSearchDate;
-    private javax.swing.JTextField txtTimKiem;
+    private JMenuItem about;
+    private JMenuItem back;
+    private JButton btnClear;
+    private JButton btnClearDate;
+    private JButton btnSearch;
+    private JButton btnSearchDate;
+    private JMenuItem exit;
+    private JMenuBar jMenuBar1;
+    private JScrollPane jScrollPane1;
+    private JLabel lblDate;
+    private JLabel lblTimKiem;
+    private JMenu system;
+    private JTable table;
+    private JTextField txtSearchDate;
+    private JTextField txtTimKiem;
     // End of variables declaration//GEN-END:variables
 
     public void Date_HD(){

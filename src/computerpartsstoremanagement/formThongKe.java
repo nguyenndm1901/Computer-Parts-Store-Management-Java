@@ -20,7 +20,7 @@ public class formThongKe extends javax.swing.JFrame {
     public ArrayList<ThongKe> thongkeList(){
         ArrayList<ThongKe> thongkesList = new ArrayList<>();
         try {
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT * FROM ThongKe");
@@ -91,7 +91,7 @@ public class formThongKe extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Thống Kê");
 
-        table.setModel(new javax.swing.table.DefaultTableModel(
+        table.setModel(new DefaultTableModel(
             new Object [][] {
 
             },
@@ -291,8 +291,8 @@ public class formThongKe extends javax.swing.JFrame {
     }//GEN-LAST:event_exitActionPerformed
 
     public void ThongKe(){
-        try{     
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+        try{
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             String sql1 = "SELECT COUNT(soLuong) AS SoLuong FROM ThongKe";
             String sql2 = "SELECT COUNT(DISTINCT maHD) AS HoaDon FROM ThongKe";
@@ -334,8 +334,8 @@ public class formThongKe extends javax.swing.JFrame {
         catch(Exception sqlex){
             JOptionPane.showMessageDialog(null, sqlex);
         }
-        try{     
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+        try{
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             String sql1 = "SELECT tenKH AS Max FROM ThongKe WHERE tenKH = (SELECT TOP 1 tenKH FROM ThongKe GROUP BY tenKH ORDER BY COUNT(DISTINCT soLuong) DESC)";
             String sql2 = "SELECT tenKH AS Min FROM ThongKe WHERE tenKH = (SELECT TOP 1 tenKH FROM ThongKe GROUP BY tenKH ORDER BY COUNT(DISTINCT soLuong) ASC)";
@@ -369,8 +369,8 @@ public class formThongKe extends javax.swing.JFrame {
         catch(Exception sqlex){
             JOptionPane.showMessageDialog(null, sqlex);
         }
-        try{     
-            String url = "jdbc:sqlserver://localhost;databaseName=DBQLCH;integratedSecurity=true;";
+        try{
+            String url = ConnectionString.getUrl();
             Connection connection = DriverManager.getConnection(url);
             String sql1 = "SELECT tenSP AS MaxPrice FROM SanPham WHERE giaTien = (SELECT MAX(giaTien) FROM SanPham)";
             String sql2 = "SELECT tenSP AS MinPrice FROM SanPham WHERE giaTien = (SELECT MIN(giaTien) FROM SanPham)";
